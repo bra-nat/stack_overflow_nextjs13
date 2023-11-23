@@ -5,25 +5,25 @@ import RenderTag from "./RenderTag";
 
 const RightSidebar = () => {
   const hotQuestions = [
-    { _id: 1, title: "How to use Express as a custom server in NextJS?" },
+    { _id: "1", title: "How to use Express as a custom server in NextJS?" },
     {
-      _id: 2,
+      _id: "2",
       title: "Benefits of server-side rendering in NextJS with Express?",
     },
-    { _id: 3, title: "Handling dynamic routes in NextJS with Express?" },
+    { _id: "3", title: "Handling dynamic routes in NextJS with Express?" },
     {
-      _id: 4,
+      _id: "4",
       title: "Optimizations and best practices with Express in NextJS?",
     },
-    { _id: 5, title: "Integrating middleware in NextJS with Express?" },
+    { _id: "5", title: "Integrating middleware in NextJS with Express?" },
   ];
 
   const popularTags = [
-    { _id: 1, name: "javascript", totalQuestions: 3 },
-    { _id: 2, name: "react", totalQuestions: 5 },
-    { _id: 3, name: "node.js", totalQuestions: 2 },
-    { _id: 4, name: "web-development", totalQuestions: 4 },
-    { _id: 5, name: "frontend", totalQuestions: 3 },
+    { _id: "1", name: "javascript", totalQuestions: 3 },
+    { _id: "2", name: "react", totalQuestions: 5 },
+    { _id: "3", name: "node.js", totalQuestions: 2 },
+    { _id: "4", name: "web-development", totalQuestions: 4 },
+    { _id: "5", name: "frontend", totalQuestions: 3 },
   ];
 
   return (
