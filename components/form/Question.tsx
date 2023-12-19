@@ -25,7 +25,6 @@ import Image from "next/image";
 const type: any = "create";
 
 const Question = () => {
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   // 1. Define your form.
   const form = useForm<z.infer<typeof QuestionsSchema>>({
@@ -39,16 +38,13 @@ const Question = () => {
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof QuestionsSchema>) {
     setIsSubmitting(true);
-    
+
     try {
       //Make an Async call to the API --> create a question
       //contain all form data
-
       //navigate to the home page
-
     } catch (error) {
-      
-    } finally{
+    } finally {
       setIsSubmitting(false);
     }
   }
@@ -89,10 +85,12 @@ const Question = () => {
   };
 
   const handleRemoveTag = (tag: string, field: any) => {
-    const newTags = field.value.filter((clickedTag: string) => clickedTag !== tag);
+    const newTags = field.value.filter(
+      (clickedTag: string) => clickedTag !== tag
+    );
 
     form.setValue("tags", newTags);
-  }
+  };
 
   return (
     <Form {...form}>
@@ -195,8 +193,7 @@ const Question = () => {
                         <Badge
                           key={tag}
                           className="subtle-medium background-light800_dark300 text-light400_light500 flex items-center justify-center gap-2 rounded-md border-none px-4 py-2 capitalize"
-                          onClick={() => handleRemoveTag(tag, field)}
-                          >
+                          onClick={() => handleRemoveTag(tag, field)}>
                           {tag}
                           <Image
                             src="/assets/icons/close.svg"
@@ -219,17 +216,16 @@ const Question = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="primary-gradient w-fit !text-light-900" disabled={isSubmitting}> 
-      {isSubmitting ? (
-        <>
-        {type === "edit" ? "Editing..." : "Sending..."}
-        </>
-      ) : (
-        <>
-        {type === "edit" ? "Edit Question" : "Ask a Question"}
-        </>
-      )}
-        Submit</Button>
+        <Button
+          type="submit"
+          className="primary-gradient w-fit !text-light-900"
+          disabled={isSubmitting}>
+          {isSubmitting ? (
+            <>{type === "edit" ? "Editing..." : "Sending..."}</>
+          ) : (
+            <>{type === "edit" ? "Edit Question" : "Ask a Question"}</>
+          )}
+        </Button>
       </form>
     </Form>
   );
