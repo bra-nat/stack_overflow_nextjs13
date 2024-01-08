@@ -5,46 +5,15 @@ import NoResult from "@/components/shared/NoResult";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
+import { getQuestions } from "@/lib/actions/question.action";
 import Link from "next/link";
 
-export default function Home() {
-  const questions = [
-    {
-      _id: "1",
-      title: "Redux Toolkit Not Updating State as Expected",
-      tags: [
-        { _id: "1", name: "Javascript" },
-        { _id: "2", name: "Javascript" },
-      ],
-      author: {
-        _id: "3",
-        name: "Nathaniel Aidoo",
-        picture: "url-to-picture",
-      },
-      upvotes: 5,
-      answers: [],
-      views: 12220000,
-      createdAt: new Date("2023-11-15T12:30:00Z"),
-    },
-    {
-      _id: "2",
-      title: "How do ES6 module exports and imports work in",
-      tags: [
-        { _id: "4", name: "Redux" },
-        { _id: "5", name: "Python" },
-      ],
-      author: {
-        _id: "6",
-        name: "Nathaniel",
-        picture: "url-to-picture",
-      },
-      upvotes: 2500000,
-      answers: [],
-      views: 180000,
-      createdAt: new Date("2023-01-15T12:30:00Z"),
-    },
-  ];
+export default async function Home() {
 
+  const result = await getQuestions({});
+
+  console.log(result.questions);
+  
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -71,8 +40,8 @@ export default function Home() {
       </div>
       <HomeFilters />
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}
