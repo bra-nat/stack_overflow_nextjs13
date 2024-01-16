@@ -1,13 +1,11 @@
 import Projects from "@/components/Carousel/Projects";
 import Question from "@/components/form/Question";
 import { getUserById } from "@/lib/actions/user.action";
-// import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 const Page = async () => {
-  // const { userId } = auth();
-
-  const userId = "dummy123";
+  const { userId } = auth();
 
   if(!userId) redirect("/sign-in");
 
