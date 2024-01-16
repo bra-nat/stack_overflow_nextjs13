@@ -69,8 +69,6 @@ const Question = ({ mongoUserId }: Props) => {
 
   const tinyKey = process.env.NEXT_PUBLIC_TINY_EDITOR_API_KEY;
 
-  console.log(tinyKey);
-
   const editorRef = useRef(null);
 
   const handleInputKeyDown = (
